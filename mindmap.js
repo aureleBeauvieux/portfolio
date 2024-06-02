@@ -706,7 +706,14 @@ function downloadObjectAsJson(exportObj, exportName){
 	downloadAnchorNode.click();
 	downloadAnchorNode.remove();
 }
-
+addEventListener("DOMContentLoaded", (ev) => {
+    fetch("Veille.json")
+        .then(response => response.json())
+        .then(data => {
+            loadData(data);
+        })
+        .catch(error => alert("Erreur : " + error));
+}); 
 
 
 
